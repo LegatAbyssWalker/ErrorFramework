@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "SFML/Graphics.hpp"
+#include "SFML/System/Vector2.hpp"
 
 class Player {
 private:
