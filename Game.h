@@ -17,15 +17,17 @@ class Game {
 		sf::RenderWindow window;
 		sf::Event sfEvent;
 
-		bool isMovingUp = false;
-		bool isMovingLeft = false;
-		bool isMovingDown = false;
+		int framerateLimit = 120;
+
+		bool isMovingUp    = false;
+		bool isMovingLeft  = false;
+		bool isMovingDown  = false;
 		bool isMovingRight = false;
 
-		const float playerSpeed = 0.1;
+		const float playerSpeed = 10;
 
 	public:
-		const unsigned int screenWidth = 1000;
+		const unsigned int screenWidth  = 1000;
 		const unsigned int screenHeight = 900;
 
 	public:

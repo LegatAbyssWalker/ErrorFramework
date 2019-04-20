@@ -7,6 +7,7 @@
 #include "SFML/System/Time.hpp"
 
 #include <sstream>
+#include <iostream>
 
 class FPSCounter {
 	private:
@@ -17,8 +18,7 @@ class FPSCounter {
 		std::ostringstream ssFPS;
 
 		sf::Clock dtClock;
-		sf::Time time = dtClock.getElapsedTime();
-		float framerate = time.asSeconds();
+		sf::Time time;
 
 	public:
 		//Constructors/Destructors
@@ -27,6 +27,7 @@ class FPSCounter {
 
 		//Functions
 		void drawTo(sf::RenderWindow& window);
+		void update();
 };
 
 #endif

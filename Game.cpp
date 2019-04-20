@@ -4,6 +4,8 @@
 Game::Game() {
 	window.create(sf::VideoMode(screenWidth, screenHeight), "SFML Framework");
 	player.setPlayerPos(sf::Vector2<float>(screenWidth / 2, screenHeight / 2));
+
+	window.setFramerateLimit(framerateLimit);
 }
 
 Game::~Game() {
@@ -15,9 +17,9 @@ Game::~Game() {
 //Functions
 void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
 	//Player movement
-	if (key == sf::Keyboard::W) { isMovingUp = isPressed; }
-	if (key == sf::Keyboard::A) { isMovingLeft = isPressed; }
-	if (key == sf::Keyboard::S) { isMovingDown = isPressed; }
+	if (key == sf::Keyboard::W) { isMovingUp    = isPressed; }
+	if (key == sf::Keyboard::A) { isMovingLeft  = isPressed; }
+	if (key == sf::Keyboard::S) { isMovingDown  = isPressed; }
 	if (key == sf::Keyboard::D) { isMovingRight = isPressed; }
 
 }
@@ -42,13 +44,13 @@ void Game::updateEvents() {
 
 void Game::update() {
 	sf::Vector2f movement(0.f, 0.f);
-	if (isMovingUp) { movement.y -= playerSpeed; }
-	if (isMovingLeft) { movement.x -= playerSpeed; }
-	if (isMovingDown) { movement.y += playerSpeed; }
+	if (isMovingUp)    { movement.y -= playerSpeed; }
+	if (isMovingLeft)  { movement.x -= playerSpeed; }
+	if (isMovingDown)  { movement.y += playerSpeed; }
 	if (isMovingRight) { movement.x += playerSpeed; }
 
 	player.moveTo(movement);
-
+	fpscounter.update();
 }
 
 void Game::render() {
