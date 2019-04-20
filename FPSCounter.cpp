@@ -5,7 +5,8 @@
 FPSCounter::FPSCounter() {
 	gameFont.loadFromFile("res/fonts/arial.ttf");
 	framerateCounter.setFont(gameFont);
-	framerateCounter.setString("Hello world!");
+	ssFPS << "FPS: " << framerate;
+	framerateCounter.setString(ssFPS.str());
 }
 
 FPSCounter::~FPSCounter() {

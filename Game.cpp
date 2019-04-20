@@ -3,7 +3,7 @@
 //Constructors/Destructors
 Game::Game() {
 	window.create(sf::VideoMode(screenWidth, screenHeight), "SFML Framework");
-	player.setPlayerPos({ screenWidth / 2, screenHeight / 2 });
+	player.setPlayerPos(sf::Vector2<float>(screenWidth / 2, screenHeight / 2));
 }
 
 Game::~Game() {
@@ -48,6 +48,7 @@ void Game::update() {
 	if (isMovingRight) { movement.x += playerSpeed; }
 
 	player.moveTo(movement);
+
 }
 
 void Game::render() {

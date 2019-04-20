@@ -13,40 +13,38 @@
 #include <iostream>
 
 class Game {
-private:
-	sf::RenderWindow window;
-	sf::Event sfEvent;
-	sf::Clock dtClock;
+	private:
+		sf::RenderWindow window;
+		sf::Event sfEvent;
+
+		bool isMovingUp = false;
+		bool isMovingLeft = false;
+		bool isMovingDown = false;
+		bool isMovingRight = false;
+
+		const float playerSpeed = 0.1;
+
+	public:
+		const unsigned int screenWidth = 1000;
+		const unsigned int screenHeight = 900;
+
+	public:
+		Player player;
+		FPSCounter fpscounter;
 
 
-	bool isMovingUp = false;
-	bool isMovingLeft = false;
-	bool isMovingDown = false;
-	bool isMovingRight = false;
-
-	const float playerSpeed = 0.1;
-
-public:
-	const unsigned int screenWidth = 1000;
-	const unsigned int screenHeight = 900;
-
-public:
-	Player player;
-	FPSCounter fpscounter;
+	public:
+		//Constructors/Destructors
+		Game();
+		~Game();
 
 
-public:
-	//Constructors/Destructors
-	Game();
-	~Game();
-
-
-	//Functions
-	void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
-	void updateEvents();
-	void update();
-	void render();
-	void run();
+		//Functions
+		void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+		void updateEvents();
+		void update();
+		void render();
+		void run();
 };
 
 #endif

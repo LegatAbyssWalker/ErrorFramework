@@ -3,26 +3,30 @@
 
 #include "SFML/Graphics.hpp"
 #include "SFML/System/Vector2.hpp"
+#include "SFML/System/Clock.hpp"
+#include "SFML/System/Time.hpp"
 
 #include <sstream>
-#include <fstream>
 
 class FPSCounter {
-private:
-	sf::Font gameFont;
-	sf::Text framerateCounter;
+	private:
+		sf::Font gameFont;
+		sf::Text framerateCounter;
 
-	sf::Clock dtClock;
-	sf::Time time = dtClock.getElapsedTime();
-	float framerate = time.asSeconds();
+	public:
+		std::ostringstream ssFPS;
 
-public:
-	//Constructors/Destructors
-	FPSCounter();
-	~FPSCounter();
+		sf::Clock dtClock;
+		sf::Time time = dtClock.getElapsedTime();
+		float framerate = time.asSeconds();
 
-	//Functions
-	void drawTo(sf::RenderWindow& window);
+	public:
+		//Constructors/Destructors
+		FPSCounter();
+		~FPSCounter();
+
+		//Functions
+		void drawTo(sf::RenderWindow& window);
 };
 
 #endif
